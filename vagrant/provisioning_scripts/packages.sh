@@ -35,6 +35,5 @@ provision_packages() {
     echo "Installing system packages."
     sudo apt-get update
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y $RALPH_REQUIRED_PACKAGES
-    echo "Installation of system packages succeeded."
+    echo "Installation of system packages succeeded.==========================================================================="
 }
-

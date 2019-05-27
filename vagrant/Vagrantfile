@@ -16,7 +16,7 @@ Vagrant.configure(2) do |config|
             "node_modules",
             "bower_components",
             "src/ralph.egg-info",
-            "src/ralph/settings/local.py", 
+            "src/ralph/settings/local.py",
             "src/ralph/static/css",
             "src/ralph/static/vendor",
             "src/ralph/admin/static/bower_components",
@@ -31,7 +31,7 @@ Vagrant.configure(2) do |config|
         args: "do-provision"
     config.vm.network "forwarded_port", guest: 8000, host: 8000
     config.vm.network "forwarded_port", guest: 19360, host: 1936  # for Sublime Text Anaconda plugin
-    config.vm.network "private_network", ip: "192.168.1.100"  # for DHCP server
+    config.vm.network "private_network", ip: "192.168.2.100"  # for DHCP server
     config.vm.provider :virtualbox do |vb|
         vb.name = "ralph_ng"
         vb.memory = 2048

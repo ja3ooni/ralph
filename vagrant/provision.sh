@@ -5,7 +5,7 @@ set -eu
 VM_USER=${VM_USER:-ubuntu}
 HOME_DIR="/home/$VM_USER"
 RALPH_DIR=${RALPH_DIR:-"$HOME_DIR/ralph"}
-RALPH_VENV=${RALPH_VENV:-"$HOME_DIR/venv"}
+RALPH_VENV=/home/vagrant/venv
 RALPH_PROFILE_EXTENSIONS=${RALPH_PROFILE_EXTENSIONS:-"$RALPH_DIR/vagrant/conf/profile_extensions"}
 USER_PROFILE_PATH=${USER_PROFILE_PATH:-"$HOME_DIR/.profile"}
 

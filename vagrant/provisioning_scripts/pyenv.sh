@@ -1,6 +1,7 @@
 clean_up() {
     deactivate || true
     rm -rf $RALPH_VENV
+    echo "cleanup succeeded.==========================================================================="
 }
 
 
@@ -40,15 +41,16 @@ setup_user_env() {
     # create local settings file
     if [ ! -f $settings_local_path ]; then
         echo "$ralph_local_settings" > $settings_local_path
+        echo "create local settings file========================================================"
     fi
 }
 
 
 provision_pyenv() {
-    echo "Installing Ralph and its dependencies."
+    echo "Installing Ralph and its dependencies.========================================================="
     clean_up || true
     setup_venv
     install_ralph
     setup_user_env
-    echo "Installation of Ralph and its dependencies succeeded."
+    echo "Installation of Ralph and its dependencies succeeded.============================================="
 }
