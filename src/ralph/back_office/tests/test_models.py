@@ -22,6 +22,8 @@ from ralph.assets.tests.factories import (
     ServiceEnvironmentFactory
 )
 from ralph.attachments.models import Attachment
+
+from ralph.back_office.helpers import EmailContext
 from ralph.back_office.models import (
     _check_assets_owner,
     BackOfficeAsset,
@@ -134,11 +136,16 @@ class HostnameGeneratorTests(RalphTestCase):
         self.assertEqual(iso3_to_iso2('POL'), 'PL')
 
     def test_validate_imei(self):
-        bo_asset_failed = BackOfficeAssetFactory(imei='failed')
-        bo_asset = BackOfficeAssetFactory(imei='990000862471854')
+        bo_asset_failed = BackOfficeAssetFactory(imei='failed', imei2='failed')
+        bo_asset = BackOfficeAssetFactory(
+            imei='990000862471854', imei2='990000862471854'
+        )
 
-        self.assertFalse(bo_asset_failed.validate_imei())
-        self.assertTrue(bo_asset.validate_imei())
+        self.assertFalse(bo_asset_failed.validate_imei(bo_asset_failed.imei))
+        self.assertTrue(bo_asset.validate_imei(bo_asset.imei))
+
+        self.assertFalse(bo_asset_failed.validate_imei(bo_asset_failed.imei2))
+        self.assertTrue(bo_asset.validate_imei(bo_asset.imei2))
 
 
 class TestBackOfficeAsset(RalphTestCase):
@@ -558,7 +565,11 @@ class TestBackOfficeAssetTransitions(TransitionTestCase, RalphTestCase):
         self.assertEqual(attachment.original_filename, correct_filename)
         self.assertEqual(attachment.file.read(), GENERATED_FILE_CONTENT)
 
-    def test_send_attachments_to_user_action_sends_email(self):
+    @patch('ralph.back_office.helpers.get_email_context_for_transition')
+    def test_send_attachments_to_user_action_sends_email(self, mockemctx):
+        mockemctx.return_value = EmailContext(from_email="foo@bar.pl",
+                                              subject="sub",
+                                              body="bod")
         bo_asset = BackOfficeAssetFactory(model=self.model)
         _, transition, _ = self._create_transition(
             model=bo_asset,
@@ -583,6 +594,7 @@ class TestBackOfficeAssetTransitions(TransitionTestCase, RalphTestCase):
         )
 
         self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].from_email, "foo@bar.pl")
 
     def test_send_attachments_to_user_action_dont_send_email_without_attachments(self):  # noqa: E501
         bo_asset = BackOfficeAssetFactory(model=self.model)

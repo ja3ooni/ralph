@@ -12,9 +12,6 @@ container (and there shouldn't be).
 It is also possible to use our old package version for Ubuntu 14.04 Trusty
 distribution on the AMD64 platform.
 
-On the other hand, if you are developer, we strongly suggest using our `Vagrant` inside the `vagrant` directory
-with many development *bells and whistles* included.
-
 ## Ubuntu package - bionic and newer - recommended
 
 This is a quick introduction on how to install Ralph on Ubuntu 18.04 Bionic.
@@ -34,9 +31,8 @@ used as Django settings.
 ### Ralph installation
 
 The steps below can be executed on any clean installation Ubuntu 18.04 Bionic.
-You can use [this Vagrant box](./vagrant.md) if you want.
 
-    sudo apt-key adv --keyserver  hkp://keyserver.ubuntu.com:80 --recv-keys 379CE192D401AB61
+    sudo apt-key adv --keyserver  hkp://keyserver.ubuntu.com:80 --recv-keys E2D0F3764B54797F
     sudo sh -c "echo 'deb https://dl.bintray.com/allegro/debng bionic main' >  /etc/apt/sources.list.d/ralph.list"
     sudo apt-get update
     sudo apt-get install mysql-server nginx ralph-core
@@ -92,8 +88,9 @@ After that, restart nginx:
 Once Ralph is installed, you can create Ralph database and a database user:
 
     sudo mysql
-    mysql> create user 'ralph_ng'@'127.0.0.1' identified by 'ralph_ng'
-    mysql> grant all privileges on ralph_ng.* to 'ralph_ng'@'127.0.0.1'
+    mysql> create user 'ralph_ng'@'127.0.0.1' identified by 'ralph_ng';
+    mysql> grant all privileges on ralph_ng.* to 'ralph_ng'@'127.0.0.1';
+    mysql> create database ralph_ng;
 
 Create the database schema, create Ralph superuser and populate the database
 with some data:
@@ -110,8 +107,8 @@ Now just a finishing touch:
     sudo systemctl enable ralph.service
     sudo systemctl start ralph.service
 
-And you are all set. Navigate to your new Ralph installation - if you used
-Vagrant, follow this link: [http://localhost:8000](http://localhost:8000).
+And you are all set. Navigate to your new Ralph installation. Just follow this
+link: [http://localhost](http://localhost).
 
 ### Troubleshooting
 

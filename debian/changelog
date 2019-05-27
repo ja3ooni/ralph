@@ -1,3 +1,155 @@
+ralph (20190524.2) bionic; urgency=medium
+
+  [ Szymon Jasinski ]
+  * fix #3449
+
+  [ Szymon Jasinski ]
+  * Upgrade Redis and Sentinel related packages and configuration (#3452)
+
+  [ Roman Prykhodchenko ]
+  * Use git author for Debian changelog
+
+ -- Damian Blejwas <damian.blejwas@allegro.pl>  Fri, 24 May 2019 12:50:25 +0000
+
+ralph (20190524.1) bionic; urgency=medium
+
+  [ Damian Blejwas ]
+  * Fix naming of IMEI fields
+
+  [ Szymon Jasinski ]
+  * Fix user equipment view (#3454)
+
+ -- Marek Bleschke <marek.bleschke@allegro.pl>  Fri, 24 May 2019 08:54:58 +0000
+
+ralph (20190515.1) bionic; urgency=medium
+
+  [ Maciej Skorczewski ]
+  * Eliminate MX and TXT records from checking_type function
+
+  [ Marek Bleschke ]
+  * Replace quotation to inches unicode sign in model name for buyout link
+
+  [ Damian Blejwas ]
+  * Add IMEI2 field
+
+ -- Roman Prykhodchenko <me@romcheg.me>  Wed, 15 May 2019 09:52:10 +0000
+
+ralph (20190508.1) bionic; urgency=medium
+
+  [ Marek Bleschke ]
+  * Show configuration path for cloud hosts. (#3445)
+
+  [  Marcin Kliks (vi4m) ]
+  * Documentation: Add ralph forum link
+
+  [ Yixing Yan (yanyx) ]
+  * Fix the development env setup steps (#3447)
+
+ -- Roman Prykhodchenko <me@romcheg.me>  Wed, 08 May 2019 11:56:05 +0000
+
+ralph (20190410.2) bionic; urgency=medium
+
+  [ Roman Prykhodchenko ]
+  * Fix the documentation link in the README
+
+ -- Roman Prykhodchenko <me@romcheg.me>  Wed, 10 Apr 2019 12:50:17 +0000
+
+ralph (20190410.1) bionic; urgency=medium
+
+  [ Maciej Skorczewski ]
+  * RAS-1433 | Fix bug in invoice report and add start usage in bulk edit (#3440)
+
+ -- Damian Blewas <damian.blejwas@gmail.com>  Wed, 10 Apr 2019 09:15:50 +0000
+
+ralph (20190313.1) bionic; urgency=medium
+
+  [ Szymon Jasinski ]
+  * Revert "RAS-1296 - handle empty/incorrect payload from dnsaas (#3381)"
+
+ -- Roman Prykhodchenko <me@romcheg.me>  Wed, 13 Mar 2019 09:15:31 +0000
+
+ralph (20190312.1) bionic; urgency=medium
+
+  [ Roman Prykhodchenko ]
+  * Display security scan status in base object lists
+
+  [ Maciej Skorczewski ]
+  * Deleted _ from TradeMarkCountry class
+
+ -- Roman Prykhodchenko <me@romcheg.me>  Tue, 12 Mar 2019 10:26:47 +0000
+
+ralph (20190308.1) bionic; urgency=medium
+
+  [ Roman Prykhodchenko ]
+  * Document development environment
+  * Fix development status (#3430)
+  * Implement snapshot builds for docker images
+
+  [ Maciej Skorczewski ]
+  * Add Registering Institution and Country into Trade Marks model (#3415)
+
+ -- Roman Prykhodchenko <me@romcheg.me>  Fri, 08 Mar 2019 12:49:59 +0000
+
+ralph (20190306.1) bionic; urgency=medium
+
+  [ Arkadiusz Adamski ]
+  * Fix ``KeyError`` exception - dashboards
+
+  [ Roman Prykhodchenko ]
+  * Remove Vagrant support
+  * Remove obsolete packging code
+  * Fix labels for static container (Closes: #3428)
+
+  [ mahomahomaho ]
+  * Handle empty/incorrect payload from dnsaas (#3381)
+
+  [ Russell Clare ]
+  * Update installation.md
+
+  [ Maciej Skorczewski ]
+  * Add start_usage in licences model (#3406)
+
+  [ ahaupt ]
+  * Make network vlan searchable (#3426)
+
+ -- Roman Prykhodchenko <me@romcheg.me>  Wed, 06 Mar 2019 10:21:34 +0000
+
+ralph (20190221.1) bionic; urgency=medium
+
+  [ Szymon Jasinski ]
+  * Fix docker static build (#3410)
+
+  [ vi4m Marcin Kliks ]
+  * SSL Certificates API (#3413)
+
+ -- Mracin Kliks <marcin.kliks@icloud.com>  Thu, 21 Feb 2019 14:19:39 +0000
+
+ralph (20190215.1) bionic; urgency=medium
+
+  [ mahomahomaho ]
+  * Better wording of back office front boxes (#3373)
+
+  [ Szymon Jasinski ]
+  * Docker nginx (#3409)
+
+ -- Szymon Jasinski <szymon@szymi.com> Fri, 15 Feb 2019 12:39:00 +0000
+
+ralph (20190208.1) bionic; urgency=medium
+
+  [ mahomahomaho ]
+  * inkpy in docker-compose (#3369)
+  * from_email in EmailContext (#3367)
+
+  [ Maciej Skorczewski ]
+  * Add model__name to Asset relations data center report (#3368)
+  * Add field "start_usage" in asset model (#3378)
+  * Buyout button in MyEquipmet view (#3346)
+
+  [ Szymon Jasinski ]
+  * documentation fix (#3404)
+
+ -- Szymon Jasinski <szymon@szymi.com>  Fri, 08 Feb 2019 12:57:53 +0000
+
 ralph (20190201.1) bionic; urgency=medium
 
   [ Roman Prykhodchenko ]

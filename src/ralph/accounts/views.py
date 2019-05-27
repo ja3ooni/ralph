@@ -186,7 +186,6 @@ class CurrentUserInfoView(
             'user', ('barcode', _('Barcode / Inventory Number')),
             'model__category__name', 'model__manufacturer__name',
             'model__name', ('sn', _('Serial Number')), 'invoice_date', 'status',
-            'url',
         ]
 
         if settings.MY_EQUIPMENT_SHOW_BUYOUT_DATE:
@@ -196,7 +195,7 @@ class CurrentUserInfoView(
             asset_fields += ['report_failure']
 
         if settings.MY_EQUIPMENT_BUYOUT_URL and settings.MY_EQUIPMENT_SHOW_BUYOUT_DATE:  # noqa
-            asset_fields += ['report_buyout']
+            asset_fields += ['buyout_ticket']
 
         warehouse_stocktaking_enabled = BackOfficeAsset.objects.filter(
             user=self.request.user, warehouse__stocktaking_enabled=True
@@ -220,7 +219,7 @@ class CurrentUserInfoView(
             [
                 ('niw', _('Inventory Number')), 'manufacturer',
                 'software__name', 'licence_type', 'sn',
-                'valid_thru', 'url'
+                'valid_thru'
             ],
             request=self.request,
         )
