@@ -23,14 +23,18 @@ services:
         REDIS_DB: 0
 
   nginx:
-    image: nginx
+    image: allegro/ralph-static-nginx:latest
     restart: always
     ports:
       - "80:80"
     volumes:
+<<<<<<< HEAD
       - ./ralph.conf.nginx:/etc/nginx/conf.d/default.conf
       - ralph_static:/opt/ralph/static
       - ralph_media:/opt/ralph/media
+=======
+      - ralph_media:/opt/media
+>>>>>>> a4caa2a0305ac095fa54ab5c56a030e7c52cbc23
 
   db:
     image: mysql:5.7
